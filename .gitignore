@@ -1,0 +1,5 @@
+__pycache__/
+qa-*.md
+.venv/
+.env
+*.part

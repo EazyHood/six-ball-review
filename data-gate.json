@@ -1,0 +1,402 @@
+{
+  "archive_match_count": 1243,
+  "archive_seasons": {
+    "2007/08": 58,
+    "2009": 57,
+    "2009/10": 60,
+    "2011": 73,
+    "2012": 74,
+    "2013": 76,
+    "2014": 60,
+    "2015": 59,
+    "2016": 60,
+    "2017": 59,
+    "2018": 60,
+    "2019": 60,
+    "2020/21": 60,
+    "2021": 60,
+    "2022": 74,
+    "2023": 74,
+    "2024": 71,
+    "2025": 74,
+    "2026": 74
+  },
+  "versions": {
+    "1.2.0": 1243
+  },
+  "notices_in_archive": {
+    "README.txt": {
+      "sha256": "d7fd7c7c4df25b6cc98e52d8459faa0fd43ad7e4bb023d0e52a12ed367d1a552",
+      "bytes": 104761
+    },
+    "LICENSE.txt": {
+      "sha256": "11a6d83734845ad09d809667aa219857a5b985b28c258a2eebf5677668a6bd3b",
+      "bytes": 19977
+    }
+  },
+  "target_match_count": 293,
+  "by_season": {
+    "2023": {
+      "source_matches": 74,
+      "included_matches": 71,
+      "excluded_matches": 3,
+      "exclusion_reasons": {
+        "revised_match_method": 2,
+        "incomplete_or_reduced_first_innings": 1
+      },
+      "date_min": "2023-03-31",
+      "date_max": "2023-05-29",
+      "legal_deliveries": 8505,
+      "illegal_deliveries": 374,
+      "unique_bowlers": 114,
+      "early_all_out_kept": 2,
+      "complete_first_innings_no_result_kept": 0,
+      "legal_by_phase": {
+        "1-6": 2556,
+        "7-15": 3834,
+        "16-20": 2115
+      }
+    },
+    "2024": {
+      "source_matches": 71,
+      "included_matches": 70,
+      "excluded_matches": 1,
+      "exclusion_reasons": {
+        "reduced_chase_target": 1
+      },
+      "date_min": "2024-03-22",
+      "date_max": "2024-05-26",
+      "legal_deliveries": 8369,
+      "illegal_deliveries": 425,
+      "unique_bowlers": 110,
+      "early_all_out_kept": 5,
+      "complete_first_innings_no_result_kept": 0,
+      "legal_by_phase": {
+        "1-6": 2520,
+        "7-15": 3780,
+        "16-20": 2069
+      }
+    },
+    "2025": {
+      "source_matches": 74,
+      "included_matches": 71,
+      "excluded_matches": 3,
+      "exclusion_reasons": {
+        "reduced_chase_target": 1,
+        "revised_match_method": 1,
+        "incomplete_or_reduced_first_innings": 1
+      },
+      "date_min": "2025-03-22",
+      "date_max": "2025-06-03",
+      "legal_deliveries": 8423,
+      "illegal_deliveries": 421,
+      "unique_bowlers": 101,
+      "early_all_out_kept": 6,
+      "complete_first_innings_no_result_kept": 2,
+      "legal_by_phase": {
+        "1-6": 2556,
+        "7-15": 3829,
+        "16-20": 2038
+      }
+    },
+    "2026": {
+      "source_matches": 74,
+      "included_matches": 71,
+      "excluded_matches": 3,
+      "exclusion_reasons": {
+        "incomplete_or_reduced_first_innings": 1,
+        "reduced_chase_target": 1,
+        "revised_match_method": 1
+      },
+      "date_min": "2026-03-28",
+      "date_max": "2026-05-31",
+      "legal_deliveries": 8479,
+      "illegal_deliveries": 431,
+      "unique_bowlers": 108,
+      "early_all_out_kept": 5,
+      "complete_first_innings_no_result_kept": 0,
+      "legal_by_phase": {
+        "1-6": 2556,
+        "7-15": 3834,
+        "16-20": 2089
+      }
+    }
+  },
+  "excluded": [
+    {
+      "match_id": "1359476",
+      "archive_member": "1359476.json",
+      "sha256": "fed15b2b1cd9360ebf8eb4a44d544bc7645e7e94ec33e3d355e06f46e6491096",
+      "season": "2023",
+      "dates": [
+        "2023-04-01"
+      ],
+      "teams": [
+        "Punjab Kings",
+        "Kolkata Knight Riders"
+      ],
+      "venue": "Punjab Cricket Association IS Bindra Stadium, Mohali, Chandigarh",
+      "data_version": "1.2.0",
+      "revision": 2,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "revised_match_method"
+    },
+    {
+      "match_id": "1359519",
+      "archive_member": "1359519.json",
+      "sha256": "d11f6abe4b0d290c8dd91b196faa731490458373ea7d9f495013247fe0170b45",
+      "season": "2023",
+      "dates": [
+        "2023-05-03"
+      ],
+      "teams": [
+        "Lucknow Super Giants",
+        "Chennai Super Kings"
+      ],
+      "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+      "data_version": "1.2.0",
+      "revision": 2,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "incomplete_or_reduced_first_innings"
+    },
+    {
+      "match_id": "1370353",
+      "archive_member": "1370353.json",
+      "sha256": "3b8e7e8747822ccefbff9394fb19dcdc7027dcc635b142b542b246dd5436a558",
+      "season": "2023",
+      "dates": [
+        "2023-05-29"
+      ],
+      "teams": [
+        "Gujarat Titans",
+        "Chennai Super Kings"
+      ],
+      "venue": "Narendra Modi Stadium, Ahmedabad",
+      "data_version": "1.2.0",
+      "revision": 2,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "revised_match_method"
+    },
+    {
+      "match_id": "1426298",
+      "archive_member": "1426298.json",
+      "sha256": "a4c44986a56f3826f69e2d02a151ec431d10026ee77da0d82f087b71cbc9adc1",
+      "season": "2024",
+      "dates": [
+        "2024-05-11"
+      ],
+      "teams": [
+        "Kolkata Knight Riders",
+        "Mumbai Indians"
+      ],
+      "venue": "Eden Gardens, Kolkata",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "reduced_chase_target"
+    },
+    {
+      "match_id": "1473471",
+      "archive_member": "1473471.json",
+      "sha256": "e88aecd971087dab3c187b1c608e147d85465d5f7dbb628b7f2e4eacf79ade7c",
+      "season": "2025",
+      "dates": [
+        "2025-04-18"
+      ],
+      "teams": [
+        "Royal Challengers Bengaluru",
+        "Punjab Kings"
+      ],
+      "venue": "M Chinnaswamy Stadium, Bengaluru",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "reduced_chase_target"
+    },
+    {
+      "match_id": "1473493",
+      "archive_member": "1473493.json",
+      "sha256": "87e99e6c892833430712a8afa6eb379775db3c6a879eadf76d6f869af9334908",
+      "season": "2025",
+      "dates": [
+        "2025-05-06"
+      ],
+      "teams": [
+        "Mumbai Indians",
+        "Gujarat Titans"
+      ],
+      "venue": "Wankhede Stadium, Mumbai",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "revised_match_method"
+    },
+    {
+      "match_id": "1473495",
+      "archive_member": "1473495.json",
+      "sha256": "5ba810911a724c764bb27fe943d0e04f35ed4becf5ead7f4e106541e691410cf",
+      "season": "2025",
+      "dates": [
+        "2025-05-08"
+      ],
+      "teams": [
+        "Punjab Kings",
+        "Delhi Capitals"
+      ],
+      "venue": "Himachal Pradesh Cricket Association Stadium, Dharamsala",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "incomplete_or_reduced_first_innings"
+    },
+    {
+      "match_id": "1527685",
+      "archive_member": "1527685.json",
+      "sha256": "ff89f5c6bcad5d169a22e00a4252b6f82cd6dd451d0be2f8161a39b74a1c1d78",
+      "season": "2026",
+      "dates": [
+        "2026-04-06"
+      ],
+      "teams": [
+        "Kolkata Knight Riders",
+        "Punjab Kings"
+      ],
+      "venue": "Eden Gardens, Kolkata",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "incomplete_or_reduced_first_innings"
+    },
+    {
+      "match_id": "1527686",
+      "archive_member": "1527686.json",
+      "sha256": "bd8d76fbe8efdf194520f83fc7b0fd0cad81acf20ad9d55f35045916c9dc28d1",
+      "season": "2026",
+      "dates": [
+        "2026-04-07"
+      ],
+      "teams": [
+        "Rajasthan Royals",
+        "Mumbai Indians"
+      ],
+      "venue": "Barsapara Cricket Stadium, Guwahati",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "reduced_chase_target"
+    },
+    {
+      "match_id": "1529293",
+      "archive_member": "1529293.json",
+      "sha256": "46a7ab802d2d340aee7c2d8e2028fee276cae72bcd0534d6c082ccde09bb50df",
+      "season": "2026",
+      "dates": [
+        "2026-05-07"
+      ],
+      "teams": [
+        "Lucknow Super Giants",
+        "Royal Challengers Bengaluru"
+      ],
+      "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+      "data_version": "1.2.0",
+      "revision": 1,
+      "provider_missing_flags": [],
+      "status": "excluded",
+      "reason": "revised_match_method"
+    }
+  ],
+  "name_aliases": {},
+  "independent_scorecard_verification": "Separate review pending; internal reconciliation is not independent validation.",
+  "generated_at_utc": "2026-10-18T12:07:09.012012+00:00",
+  "archive_sha256": "5757e04287179767ff8495f02902bd13812b9572ec8fa2ac1347ec2e9c6d4709",
+  "pipeline_sha256": "55399e5b11724076005b6ff21c805a2a7a4020cab98dde157f56e8277946409a",
+  "analysis_plan_sha256": "599ee1e5fe31b5e20048696686db6c79312c181ead70bd141199ccb46a766d06",
+  "analysis_plan": {
+    "version": "0.1-preregistered-data-gate",
+    "recorded_at_utc": "2026-10-18T12:02:44.980175+00:00",
+    "status": "frozen_before_download_and_model_results",
+    "scope": "IPL male, first innings, scheduled 20 overs, no revised/reduced/incomplete innings; keep all-out innings",
+    "training_seasons": [
+      2023,
+      2024
+    ],
+    "validation_seasons": [
+      2025
+    ],
+    "test_seasons": [
+      2026
+    ],
+    "phase_over_indices": {
+      "1-6": [
+        0,
+        5
+      ],
+      "7-15": [
+        6,
+        14
+      ],
+      "16-20": [
+        15,
+        19
+      ]
+    },
+    "categories": [
+      "dot",
+      "boundary",
+      "other"
+    ],
+    "smoothing_candidates": [
+      24,
+      60,
+      120,
+      240
+    ],
+    "primary_metric": "mean_over_deliveries(sum_over_categories((probability-indicator)^2))",
+    "selection": "one_global_m_minimizes_validation_brier_ties_choose_larger_m",
+    "secondary_metric": "log_loss_clip_each_probability_to_1e-6_then_renormalize",
+    "calibration_bins": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "minimum_evidence": {
+      "legal_deliveries": 60,
+      "matches": 5
+    },
+    "bootstrap": {
+      "unit": "match",
+      "seed": 20261018,
+      "replicates": 2000,
+      "interval": "percentile_95",
+      "paired_models": true
+    },
+    "if_2026_absent": "Stop test evaluation. Record coverage and amend split before any model results; never silently replace the test season.",
+    "not_claimed": [
+      "causal_skill",
+      "win_probability",
+      "real_time_prediction",
+      "betting_guidance",
+      "professional_validation",
+      "independent_scorecard_validation_before_executed"
+    ]
+  },
+  "attribution": "Contains information from Cricsheet (https://cricsheet.org/) under ODC-By 1.0 (https://opendatacommons.org/licenses/by/1-0/).",
+  "data_gate": "pass_internal_consistency_pending_independent_review"
+}

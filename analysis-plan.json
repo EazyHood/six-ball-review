@@ -1,0 +1,77 @@
+{
+  "version": "0.1-preregistered-data-gate",
+  "recorded_at_utc": "2026-10-18T12:02:44.980175+00:00",
+  "status": "frozen_before_download_and_model_results",
+  "scope": "IPL male, first innings, scheduled 20 overs, no revised/reduced/incomplete innings; keep all-out innings",
+  "training_seasons": [
+    2023,
+    2024
+  ],
+  "validation_seasons": [
+    2025
+  ],
+  "test_seasons": [
+    2026
+  ],
+  "phase_over_indices": {
+    "1-6": [
+      0,
+      5
+    ],
+    "7-15": [
+      6,
+      14
+    ],
+    "16-20": [
+      15,
+      19
+    ]
+  },
+  "categories": [
+    "dot",
+    "boundary",
+    "other"
+  ],
+  "smoothing_candidates": [
+    24,
+    60,
+    120,
+    240
+  ],
+  "primary_metric": "mean_over_deliveries(sum_over_categories((probability-indicator)^2))",
+  "selection": "one_global_m_minimizes_validation_brier_ties_choose_larger_m",
+  "secondary_metric": "log_loss_clip_each_probability_to_1e-6_then_renormalize",
+  "calibration_bins": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0
+  ],
+  "minimum_evidence": {
+    "legal_deliveries": 60,
+    "matches": 5
+  },
+  "bootstrap": {
+    "unit": "match",
+    "seed": 20261018,
+    "replicates": 2000,
+    "interval": "percentile_95",
+    "paired_models": true
+  },
+  "if_2026_absent": "Stop test evaluation. Record coverage and amend split before any model results; never silently replace the test season.",
+  "not_claimed": [
+    "causal_skill",
+    "win_probability",
+    "real_time_prediction",
+    "betting_guidance",
+    "professional_validation",
+    "independent_scorecard_validation_before_executed"
+  ]
+}

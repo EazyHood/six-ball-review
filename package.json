@@ -1,0 +1,1 @@
+{"name":"six-ball-review","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node server.mjs","test":"node --test tests-ui/*.test.js","test:ui":"node --test tests-ui/*.test.js"},"engines":{"node":">=20"},"license":"MIT"}

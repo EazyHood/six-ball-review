@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Six-Ball Review proposed training-profile output",
+  "description": "Contract for profile output. See ui-data-contract.md for semantic invariants and implementation status.",
+  "type": "object",
+  "required": ["schema_version", "generated_at_utc", "provenance", "scope", "method", "evaluation", "profiles", "review_sheet"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "generated_at_utc": {"type": "string", "format": "date-time"},
+    "provenance": {
+      "type": "object",
+      "required": ["dataset_sha256", "producer_sha256", "plan_sha256", "inputs", "attribution"],
+      "properties": {
+        "dataset_sha256": {"$ref": "#/$defs/sha256"},
+        "producer_sha256": {"$ref": "#/$defs/sha256"},
+        "plan_sha256": {"$ref": "#/$defs/sha256"},
+        "inputs": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/artifact"}},
+        "attribution": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["competition", "gender", "innings", "evidence_seasons", "description"],
+      "properties": {
+        "competition": {"const": "IPL"},
+        "gender": {"const": "male"},
+        "innings": {"const": 1},
+        "evidence_seasons": {"const": [2023, 2024, 2025]},
+        "description": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "method": {
+      "type": "object",
+      "required": ["m", "minimum_legal_deliveries", "minimum_matches", "bootstrap", "limitations"],
+      "properties": {
+        "m": {"const": 240},
+        "minimum_legal_deliveries": {"const": 60},
+        "minimum_matches": {"const": 5},
+        "bootstrap": {
+          "type": "object",
+          "required": ["unit", "replicates", "seed", "level", "reference_recomputed"],
+          "properties": {
+            "unit": {"const": "whole_final_training_matches"},
+            "replicates": {"const": 2000},
+            "seed": {"const": 20261018},
+            "level": {"const": 0.95},
+            "reference_recomputed": {"const": true}
+          },
+          "additionalProperties": false
+        },
+        "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "evaluation": {
+      "type": "object", "required": ["source", "status", "seasons", "selected_m", "models", "differences", "interpretation"],
+      "properties": {
+        "source": {"$ref": "#/$defs/artifact"},
+        "status": {"const": "retrospective_held_out_evaluation_not_real_time_forecast"},
+        "seasons": {"const": [2026]},
+        "selected_m": {"const": 240},
+        "models": {"type": "object", "required": ["B0", "B1", "C"]},
+        "differences": {"type": "object", "required": ["B0", "B1"]},
+        "interpretation": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "profiles": {"type": "array", "items": {"$ref": "#/$defs/profile"}},
+    "review_sheet": {
+      "type": "object",
+      "required": ["phase", "selected", "selection_mode"],
+      "properties": {
+        "phase": {"$ref": "#/$defs/phase"},
+        "selection_mode": {"const": "manual"},
+        "selected": {
+          "type": "array", "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": ["profile_id", "question", "note"],
+            "properties": {
+              "profile_id": {"type": "string", "minLength": 1},
+              "question": {"type": "string", "minLength": 1},
+              "note": {"type": "string"}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "artifact": {
+      "type": "object", "required": ["file", "sha256"],
+      "properties": {"file": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}},
+      "additionalProperties": false
+    },
+    "phase": {"enum": ["1-6", "7-15", "16-20"]},
+    "probability": {"type": "number", "minimum": 0, "maximum": 1},
+    "rates": {
+      "type": "object", "required": ["dot", "boundary", "other"],
+      "properties": {"dot": {"$ref": "#/$defs/probability"}, "boundary": {"$ref": "#/$defs/probability"}, "other": {"$ref": "#/$defs/probability"}},
+      "additionalProperties": false
+    },
+    "counts": {
+      "type": "object", "required": ["dot", "boundary", "other"],
+      "properties": {"dot": {"type": "integer", "minimum": 0}, "boundary": {"type": "integer", "minimum": 0}, "other": {"type": "integer", "minimum": 0}},
+      "additionalProperties": false
+    },
+    "band": {
+      "type": "object", "required": ["lower", "upper"],
+      "properties": {"lower": {"$ref": "#/$defs/probability"}, "upper": {"$ref": "#/$defs/probability"}},
+      "additionalProperties": false
+    },
+    "contrast": {
+      "type": "object", "required": ["estimate", "lower", "upper"],
+      "properties": {"estimate": {"type": "number", "minimum": -1, "maximum": 1}, "lower": {"type": "number", "minimum": -1, "maximum": 1}, "upper": {"type": "number", "minimum": -1, "maximum": 1}},
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object",
+      "required": ["profile_id", "player_id", "player_name", "phase", "legal_deliveries", "illegal_deliveries", "illegal_rate", "matches", "counts", "raw", "reference", "regularized", "evidence", "checks", "review", "match_rows"],
+      "properties": {
+        "profile_id": {"type": "string", "minLength": 1},
+        "player_id": {"type": "string", "minLength": 1},
+        "player_name": {"type": "string", "minLength": 1},
+        "phase": {"$ref": "#/$defs/phase"},
+        "legal_deliveries": {"type": "integer", "minimum": 0},
+        "illegal_deliveries": {"type": "integer", "minimum": 0},
+        "illegal_rate": {"oneOf": [{"$ref": "#/$defs/probability"}, {"type": "null"}]},
+        "matches": {"type": "integer", "minimum": 0},
+        "counts": {"$ref": "#/$defs/counts"},
+        "raw": {"oneOf": [{"$ref": "#/$defs/rates"}, {"type": "null"}]},
+        "reference": {
+          "type": "object", "required": ["kind", "legal_deliveries", "rates"],
+          "properties": {"kind": {"enum": ["excluding_player", "pooled_fallback"]}, "legal_deliveries": {"type": "integer", "minimum": 1}, "rates": {"$ref": "#/$defs/rates"}},
+          "additionalProperties": false
+        },
+        "regularized": {"$ref": "#/$defs/rates"},
+        "evidence": {
+          "type": "object", "required": ["status", "reasons"],
+          "properties": {"status": {"enum": ["no_history", "limited", "adequate_for_review"]}, "reasons": {"type": "array", "items": {"type": "string"}}},
+          "additionalProperties": false
+        },
+        "checks": {
+          "type": "object", "required": ["status", "reason", "bands", "contrasts_vs_reference", "absent_bootstrap_replicates", "leave_one_match", "remove_dominant_venue", "threshold_120_eligible"],
+          "properties": {
+            "status": {"enum": ["not_computed", "complete", "unavailable"]},
+            "reason": {"type": ["string", "null"]},
+            "bands": {"oneOf": [{"type": "null"}, {"type": "object", "required": ["dot", "boundary", "other"], "properties": {"dot": {"$ref": "#/$defs/band"}, "boundary": {"$ref": "#/$defs/band"}, "other": {"$ref": "#/$defs/band"}}, "additionalProperties": false}]},
+            "contrasts_vs_reference": {"oneOf": [{"type": "null"}, {"type": "object", "required": ["dot", "boundary"], "properties": {"dot": {"$ref": "#/$defs/contrast"}, "boundary": {"$ref": "#/$defs/contrast"}}, "additionalProperties": false}]},
+            "absent_bootstrap_replicates": {"type": ["integer", "null"], "minimum": 0, "maximum": 2000},
+            "leave_one_match": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sensitivity"}]},
+            "remove_dominant_venue": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sensitivity"}]},
+            "threshold_120_eligible": {"type": ["boolean", "null"]}
+          },
+          "additionalProperties": false
+        },
+        "review": {
+          "type": "object", "required": ["status", "reasons"],
+          "properties": {"status": {"enum": ["pending_checks", "abstain", "uncertain", "reviewable"]}, "reasons": {"type": "array", "items": {"type": "string"}}},
+          "additionalProperties": false
+        },
+        "match_rows": {
+          "type": "array",
+          "items": {
+            "type": "object", "required": ["match_id", "source_sha256", "date", "season", "bowling_team", "opponent", "venue", "counts", "illegal_deliveries"],
+            "properties": {
+              "match_id": {"type": "string", "minLength": 1}, "source_sha256": {"$ref": "#/$defs/sha256"},
+              "date": {"type": "string", "format": "date"}, "season": {"enum": [2023, 2024, 2025]},
+              "bowling_team": {"type": "string", "minLength": 1}, "opponent": {"type": "string", "minLength": 1},
+              "venue": {"type": ["string", "null"]}, "counts": {"$ref": "#/$defs/counts"},
+              "illegal_deliveries": {"type": "integer", "minimum": 0}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "sensitivity": {
+      "type": "object", "required": ["status", "reason", "removed_ids", "sign_reversal_ids", "dot_contrast_range", "boundary_contrast_range", "remaining_legal_deliveries"],
+      "properties": {
+        "status": {"enum": ["complete", "unavailable"]}, "reason": {"type": ["string", "null"]},
+        "removed_ids": {"type": "array", "items": {"type": "string"}}, "sign_reversal_ids": {"type": "array", "items": {"type": "string"}},
+        "dot_contrast_range": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/contrast"}]},
+        "boundary_contrast_range": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/contrast"}]},
+        "remaining_legal_deliveries": {"type": ["integer", "null"], "minimum": 0}
+      },
+      "additionalProperties": false
+    }
+  }
+}

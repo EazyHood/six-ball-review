@@ -1,0 +1,2 @@
+# The reproducibility contract hashes exact bytes, including source files.
+* -text whitespace=trailing-space,space-before-tab,cr-at-eol

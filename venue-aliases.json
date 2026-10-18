@@ -1,0 +1,18 @@
+{
+  "version": "0.1",
+  "recorded_at": "2026-10-18",
+  "scope": "Dominant-venue deletion sensitivity only. Preserve raw venue labels and match source hashes.",
+  "review": "All 15 distinct included 2023-2025 venue labels inspected; one documented alias pair merged. Mohali remains separate.",
+  "aliases": {
+    "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur": "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur (New Chandigarh)",
+    "Maharaja Yadavindra Singh International Cricket Stadium, New Chandigarh": "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur (New Chandigarh)"
+  },
+  "evidence": [
+    {
+      "publisher": "Punjab Cricket Association",
+      "url": "https://cricketpunjab.in/pdf/Terms-condition--2024444.pdf",
+      "page": 1,
+      "supports": "PCA identifies its new international stadium at Village Tira, Mullanpur (New Chandigarh), hosting IPL from 2024."
+    }
+  ]
+}
