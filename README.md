@@ -28,7 +28,7 @@ The historical acquisition script uses a local default path and downloads only t
 
 ## Frozen archive for durable reproduction
 
-The planned `v1.0.0` release asset is `ipl-json-2026-10-18.zip` in [EazyHood/six-ball-review releases](https://github.com/EazyHood/six-ball-review/releases/tag/v1.0.0). **Publication of this release asset has not yet been confirmed.** Once the coordinator confirms it, download that asset manually; the adapter does not fetch files or require an account. The intended asset URL is `https://github.com/EazyHood/six-ball-review/releases/download/v1.0.0/ipl-json-2026-10-18.zip`.
+The unchanged `ipl-json-2026-10-18.zip` is published in the [v1.0.0 release](https://github.com/EazyHood/six-ball-review/releases/tag/v1.0.0). GitHub's asset size and SHA-256 digest were verified against the canonical snapshot on 18 October 2026. [Download the frozen archive](https://github.com/EazyHood/six-ball-review/releases/download/v1.0.0/ipl-json-2026-10-18.zip) manually; the adapter does not fetch files or require an account.
 
 The unchanged archive is 5,187,770 bytes, SHA-256 `5757e04287179767ff8495f02902bd13812b9572ec8fa2ac1347ec2e9c6d4709`. Its original README.txt and full LICENSE.txt remain inside. It contains information from [Cricsheet](https://cricsheet.org/) under [ODC-By 1.0](https://opendatacommons.org/licenses/by/1-0/); the code's MIT license does not replace the data license. Preserve these notices when redistributing the archive or derived data. No affiliation or endorsement is claimed.
 
